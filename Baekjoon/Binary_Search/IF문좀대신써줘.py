@@ -1,22 +1,22 @@
 import sys
 
-n, m = map(int, input().split())
-chingho = [sys.stdin.readline().split() for _ in range(n)]
-chingho.sort(key=lambda x: int(x[1]))
+N, M = map(int, input().split())
+nicknames = [sys.stdin.readline().split() for _ in range(N)]
+nicknames.sort(key=lambda x: int(x[1]))
 
-chars = [int(sys.stdin.readline().strip()) for _ in range(m)]
+powers = [int(sys.stdin.readline().strip()) for _ in range(M)]
 
-for char in chars:
-    right = len(chingho)
+for p in powers:
+    right = N-1
     left = 0
     result = 0
 
     while left <= right:
         mid = (left+right) // 2
-        if int(chingho[mid][1]) >= char:
+        if int(nicknames[mid][1]) >= p:
             result = mid
             right = mid - 1
         else:
             left = mid + 1
-    print(chingho[result][0])
+    print(nicknames[result][0])
         
